@@ -57,7 +57,9 @@ class AssignmentType {
 
         let total = 0;
         for(var i = 0; i < this.grades.length; i++) {
-        total += this.grades[i].score;
+            if(this.grades[1].score > -1 && this.grades[1].score != "-"){
+                total += this.grades[i].score;
+            }
         }
         return total / this.grades.length;
     }
