@@ -2,16 +2,36 @@
 <html>
     <!--Header Info-->
     <head>
+        
         <title>
             Canvas Grades Made Easy
         </title>
-
+        <link rel="stylesheet" href="Main.css">
     </head>
     
-    
-    
+   
     <!--Body-->     
     <body>
+        <!--NavBar-->  
+        <nav>
+            <input type="checkbox" id="sidebar-active">
+            <label for="sidebar-active" class="open-sidebar-button"> 
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+            </label>
+            
+            <div class="links-container"> 
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </label>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+
+            </div>
+        </nav>
+
+        <!--NavBar-->  
+
+
         <h1>
             Canvas Grades - Made Easy
         </h1>
@@ -22,24 +42,41 @@
         </h2>
 
         <p>
-            Using Canvas Grades is easy, simply paste in your grades page from canvas below and click submit. 
+            Using Canvas Grades is easy, simply paste in your grades page from canvas below, choose your desired grade from among the buttons, and then submit!
         </p>
 
         <!--Main Entry Of Text--> 
         <form>
             <div>
-                <label for="entry">Enter Grades</label>
+                <label for="entry">Enter Grades: </label>
                 <input type="text" id="entry" name="entry" placeholder="Paste Your Grades Here">
             </div>
             <br>
 
-            <div>
-                <input type="submit">
-            </div>
-            <br>
+            <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+                A (90%-100%)
+            </button>
+
+            <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+                B (80%-89%)
+            </button>
+
+            <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+                C (70%-79%)
+            </button>
+
+            <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+                D (60%-69%)
+            </button>
+
 
             <div>
-                <input type="reset">
+                <input type="submit" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            </div>
+            
+
+            <div>
+                <input type="reset" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
             </div>
             <br>
 
@@ -57,3 +94,4 @@
 
 
 </html>
+
