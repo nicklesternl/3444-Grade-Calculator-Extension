@@ -1,7 +1,8 @@
 class Course {
     constructor(name, average) {
       this.name = name;
-      this.average = average;
+      this.average = 100;
+      this.desiredAverage = 0; //replace with user input in whatever way you like
       this.assignmentTypes = [];
     }
 
@@ -23,12 +24,35 @@ class Course {
             const assignmentWeight = assignmentType.getAssignmentWeight();
 
             assignmentTypeAverageArray.push(assignmentAvg);
-            assignmentWeightArray.push(assignmentWeight);
+
+            if(assignmentWeight != 0){
+                assignmentWeightArray.push(assignmentWeight);
+            }
         });
-        
+
+        //AverageCalcuation here.
         const totalWeight = assignmentWeightArray.reduce((sum, weight) => sum + weight, 0);
         const weightedAverage = assignmentTypeAverageArray.reduce((sum, avg, index) => sum + (avg * assignmentWeightArray[index]), 0) / totalWeight;
-        return weightedAverage;
+        this.average = weightedAverage;
+        return;
+    }
+
+    // This will calculate the grade needed for the first future assignment in each assignment weight type.
+    // In list mode, should be listed with a higher weight, earlier time, earlier date preferance. 
+    //EX: tests should be listed earlier than homework even if they are due at the same time.
+    calcFutureGradesByType(){
+        //let gradesNeededForEachWeight = [];
+        let index = 0;
+        this.calculateAverage();
+        let scoreNeeded = 0;
+
+        this.assignmentTypes.forEach((assignmentType) => {
+            index = assignmentType.grades.indexOf("-"); //selects the first empty grade in each type's list, calculates based off that.
+  
+            scoreNeeded = ((this.desiredAverage * (1 - assignmentType.weight) * this.average)/assignmentType.weight); //calculates needed score for first future assignment of that weight.
+            assignmentType.grades[index].setScoreNeeded();
+        });
+        
     }
 
 }
@@ -57,9 +81,7 @@ class AssignmentType {
 
         let total = 0;
         for(var i = 0; i < this.grades.length; i++) {
-            if(this.grades[1].score > -1 && this.grades[1].score != "-"){
-                total += this.grades[i].score;
-            }
+        total += this.grades[i].score;
         }
         return total / this.grades.length;
     }
@@ -72,5 +94,14 @@ class Grade {
         this.type = type;
         this.score = score;
         this.dueDate = dueDate;
+        this.scoreNeeded = -1;
+    }
+
+    setScoreNeeded(scoreNeeded){
+        this.scoreNeeded = scoreNeeded;
+    }
+
+    getScoreNeeded(){
+        return this.scoreNeeded;
     }
 }
