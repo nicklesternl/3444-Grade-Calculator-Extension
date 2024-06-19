@@ -66,8 +66,11 @@ class AssignmentType {
 }
 
 class Grade {
-    constructor(type, score) {
-      this.type = type;
-      this.score = score;
+    constructor(title, type, score, dueDate) {
+        
+        this.title = title;
+        this.type = type;
+        this.score = score;
+        this.dueDate = dueDate;
     }
 }
