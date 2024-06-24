@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Grades Made Easy</title>
+    <link rel="stylesheet" href="Main.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <script src="script.js" type="module"></script>
+    <!--NavBar-->  
+    <nav>
+        <input type="checkbox" id="sidebar-active">
+        <label for="sidebar-active" class="open-sidebar-button"> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </label>
+        
+        <div class="links-container"> 
+            <label for="sidebar-active" class="close-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </label>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+        </div>
+    </nav>
+
+    <h1>Canvas Grades - Made Easy</h1>
+    <hr>
+    <h2>How Do I Use Canvas Grades?</h2>
+    <p>
+        Using Canvas Grades is easy, simply paste in your grades page from canvas below, choose your desired grade from among the buttons, and then submit!
+    </p>
+
+    <!--main--> 
+    <div class="wrap-box">
+        <div>
+            <label for="entry">Enter Grades: </label><br/>
+            <textarea id="entry" name="entry" placeholder="Paste Your Grades Here" rows="20" cols="50"></textarea>
+        </div>
+        <br>
+        <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            A (90%-100%)
+        </button>
+        <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            B (80%-89%)
+        </button>
+        <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            C (70%-79%)
+        </button>
+        <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            D (60%-69%)
+        </button>
+        <div>
+            <button onclick="submit()" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">Submit</button>
+        </div>
+        <div>
+            <button onclick="reset()" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">Reset</button>
+        </div>
+        <br>
+    </div>
+    <h1>Homework Calendar</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Assignment</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody id="calendar-body">
+            <!-- javaScript -->
+        </tbody>
+    </table>
+
+
+    
+</body>
+</html>
