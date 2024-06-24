@@ -21,6 +21,7 @@
     </style>
 </head>
 <body>
+    <script src="script.js" type="module"></script>
     <!--NavBar-->  
     <nav>
         <input type="checkbox" id="sidebar-active">
@@ -45,12 +46,10 @@
     </p>
 
     <!--main--> 
-    <form>
+    <div class="wrap-box">
         <div>
-            <label for="entry">Enter Grades: </label>
-            <textarea id="entry" name="entry" rows="4" cols="50" placeholder="Paste Your Grades Here">
-                
-            </textarea>
+            <label for="entry">Enter Grades: </label><br/>
+            <textarea id="entry" name="entry" placeholder="Paste Your Grades Here" rows="20" cols="50"></textarea>
         </div>
         <br>
         <button style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
@@ -66,20 +65,20 @@
             D (60%-69%)
         </button>
         <div>
-            <input type="submit" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            <button onclick="submit()" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">Submit</button>
         </div>
         <div>
-            <input type="reset" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">
+            <button onclick="reset()" style="font-size:15px; background-color:gray; color:white; border-radius:5px;">Reset</button>
         </div>
         <br>
-    </form>
-
+    </div>
     <h1>Homework Calendar</h1>
     <table>
         <thead>
             <tr>
                 <th>Date</th>
                 <th>Assignment</th>
+                <th>Grade</th>
             </tr>
         </thead>
         <tbody id="calendar-body">
@@ -87,6 +86,7 @@
         </tbody>
     </table>
 
-    <script src="calendar.js"></script>
+
+    
 </body>
 </html>
